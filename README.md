@@ -13,3 +13,39 @@ Primero, clona este repositorio en tu máquina local usando Git:
 ```bash
 git clone https://github.com/tu-usuario/recetas.git
 cd recetas
+
+### 2. Crea un entorno virtual
+
+
+`python -m venv venv` 
+
+### 3. Activa el entorno virtual
+
+-   En Windows:
+    
+
+`venv\Scripts\activate` 
+
+-   En macOS/Linux:
+    
+
+`source venv/bin/activate` 
+
+### 4. Instala las dependencias
+
+`pip install -r requirements.txt` 
+
+### 5. Aplica migraciones a la base de datos
+
+`python manage.py migrate` 
+
+### 6. Crea un superusuario (opcional)
+
+`python manage.py createsuperuser` 
+
+
+### 7. Ejecuta el servidor
+
+`python manage.py runserver` 
+
+Visita `http://127.0.0.1:8000/` en tu navegador para usar la app
