@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recetas</title>
+</head>
+<body>
+    <h1>Recetas</h1>
+    <a href="{% url 'crear_receta' %}">Crear nueva receta</a>
+    <ul>
+        {% for receta in recetas %}
+            <li>
+                <h3>{{ receta.titulo }}</h3>
+                {% if receta.imagen %}
+                    <img src="{{ receta.imagen.url }}" width="150">
+                {% endif %}
+                <p>{{ receta.descripcion|truncatewords:20 }}</p>
+                <a href="#">Ver detalles</a>
+            </li>
+        {% empty %}
+            <li>No hay recetas aún.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
