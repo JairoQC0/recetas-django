@@ -14,7 +14,7 @@
                     <img src="{{ receta.imagen.url }}" width="150">
                 {% endif %}
                 <p>{{ receta.descripcion|truncatewords:20 }}</p>
-                <a href="#">Ver detalles</a>
+                <a href="{% url 'detalle_receta' receta.id %}">Ver detalles</a>
             </li>
         {% empty %}
             <li>No hay recetas aún.</li>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ receta.titulo }}</title>
+</head>
+<body>
+    <h1>{{ receta.titulo }}</h1>
+    {% if receta.imagen %}
+        <img src="{{ receta.imagen.url }}" width="300">
+    {% endif %}
+    <p><strong>Tiempo de preparación:</strong> {{ receta.tiempo_preparacion }} minutos</p>
+    <h3>Ingredientes</h3>
+    <p>{{ receta.ingredientes }}</p>
+    <h3>Pasos</h3>
+    <p>{{ receta.pasos }}</p>
+
+    <a href="{% url 'editar_receta' receta.id %}">Editar</a> |
+    <a href="{% url 'eliminar_receta' receta.id %}">Eliminar</a> |
+    <a href="{% url 'lista_recetas' %}">Volver</a>
+</body>
+</html>
