@@ -10,9 +10,8 @@ Sigue estos pasos para configurar y ejecutar este proyecto en tu máquina local:
 
 Primero, clona este repositorio en tu máquina local usando Git:
 
-```bash
-git clone https://github.com/tu-usuario/recetas.git
-cd recetas
+`git clone https://github.com/tu-usuario/recetas.git`
+`cd recetas`
 
 ### 2. Crea un entorno virtual
 
