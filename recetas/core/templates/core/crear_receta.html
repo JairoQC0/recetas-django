@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Receta</title>
+</head>
+<body>
+    <h1>Crear nueva receta</h1>
+    <a href="{% url 'lista_recetas' %}">Volver a la lista</a>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
