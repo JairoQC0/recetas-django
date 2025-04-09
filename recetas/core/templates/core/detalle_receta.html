@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ receta.titulo }}</title>
-</head>
-<body>
-    <h1>{{ receta.titulo }}</h1>
-    {% if receta.imagen %}
-        <img src="{{ receta.imagen.url }}" width="300">
-    {% endif %}
-    <p><strong>Tiempo de preparación:</strong> {{ receta.tiempo_preparacion }} minutos</p>
-    <h3>Ingredientes</h3>
-    <p>{{ receta.ingredientes }}</p>
-    <h3>Pasos</h3>
-    <p>{{ receta.pasos }}</p>
+{% extends 'core/base.html' %}
 
-    <a href="{% url 'editar_receta' receta.id %}">Editar</a> |
-    <a href="{% url 'eliminar_receta' receta.id %}">Eliminar</a> |
-    <a href="{% url 'lista_recetas' %}">Volver</a>
-</body>
-</html>
+{% block title %}{{ receta.titulo }}{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+    {% if receta.imagen %}
+    <img src="{{ receta.imagen.url }}" class="card-img-top" alt="{{ receta.titulo }}">
+    {% endif %}
+    <div class="card-body">
+        <h2 class="card-title">{{ receta.titulo }}</h2>
+        <p><strong>Tiempo:</strong> {{ receta.tiempo_preparacion }} minutos</p>
+        <h5>Ingredientes:</h5>
+        <p>{{ receta.ingredientes }}</p>
+        <h5>Pasos:</h5>
+        <p>{{ receta.pasos }}</p>
+
+        <a href="{% url 'editar_receta' receta.id %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'eliminar_receta' receta.id %}" class="btn btn-danger">Eliminar</a>
+        <a href="{% url 'lista_recetas' %}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Crear Receta</title>
-</head>
-<body>
-    <h1>Crear nueva receta</h1>
-    <a href="{% url 'lista_recetas' %}">Volver a la lista</a>
+{% extends 'core/base.html' %}
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
-    </form>
-</body>
-</html>
+{% block title %}Crear Receta{% endblock %}
+
+{% block content %}
+<h2>Crear nueva receta</h2>
+
+<form method="post" enctype="multipart/form-data" class="mt-3">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{% url 'lista_recetas' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

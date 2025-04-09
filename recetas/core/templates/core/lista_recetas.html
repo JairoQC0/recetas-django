@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Recetas</title>
-</head>
-<body>
-    <h1>Recetas</h1>
-    <a href="{% url 'crear_receta' %}">Crear nueva receta</a>
-    <ul>
+{% extends 'core/base.html' %}
+
+{% block title %}Lista de Recetas{% endblock %}
+
+{% block content %}
+<a href="{% url 'crear_receta' %}" class="btn btn-primary mb-3">➕ Nueva receta</a>
+
+{% if recetas %}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
         {% for receta in recetas %}
-            <li>
-                <h3>{{ receta.titulo }}</h3>
+        <div class="col">
+            <div class="card">
                 {% if receta.imagen %}
-                    <img src="{{ receta.imagen.url }}" width="150">
+                <img src="{{ receta.imagen.url }}" class="card-img-top" alt="{{ receta.titulo }}">
                 {% endif %}
-                <p>{{ receta.descripcion|truncatewords:20 }}</p>
-                <a href="{% url 'detalle_receta' receta.id %}">Ver detalles</a>
-            </li>
-        {% empty %}
-            <li>No hay recetas aún.</li>
+                <div class="card-body">
+                    <h5 class="card-title">{{ receta.titulo }}</h5>
+                    <p class="card-text">{{ receta.descripcion|truncatewords:20 }}</p>
+                    <a href="{% url 'detalle_receta' receta.id %}" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
-</body>
-</html>
+    </div>
+{% else %}
+    <p>No hay recetas aún.</p>
+{% endif %}
+{% endblock %}
