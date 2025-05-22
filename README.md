@@ -12,7 +12,7 @@ Primero, clona este repositorio en tu máquina local usando Git:
 
 `git clone https://github.com/JairoQC0/recetas-django`
 
-`cd recetas`
+`cd recetas-django`
 
 ### 2. Crea un entorno virtual
 
