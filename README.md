@@ -10,7 +10,7 @@ Sigue estos pasos para configurar y ejecutar este proyecto en tu máquina local:
 
 Primero, clona este repositorio en tu máquina local usando Git:
 
-`git clone https://github.com/tu-usuario/recetas.git`
+`git clone https://github.com/JairoQC0/recetas-django`
 
 `cd recetas`
 
